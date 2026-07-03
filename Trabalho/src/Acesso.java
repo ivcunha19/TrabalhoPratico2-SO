@@ -14,7 +14,7 @@ public class Acesso {
     
     @Override
     public String toString() {
-        StringBuilder mensagem = new StringBuilder("Id: "+ id+ "Tipo: "+tipo);
+        StringBuilder mensagem = new StringBuilder("Id: "+ id+ " Tipo: "+tipo);
         return mensagem.toString();
     }
 
