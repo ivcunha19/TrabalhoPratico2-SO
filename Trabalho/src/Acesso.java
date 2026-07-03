@@ -5,11 +5,11 @@ public class Acesso {
 
     // Identificador único da página
     private int id;
-    // Tipo de acesso (ex: 'R' para leitura, 'W' para escrita)
+    // Tipo de acesso
     private char tipo;
-    // Bit de Referência (usado por algoritmos como Segunda Chance)
+    // Bit de Referência 
     private int R;
-    // Bit de Modificação (sujo/dirty, indica se a página foi alterada)
+    // Bit de Modificação 
     private int M;
 
     /**

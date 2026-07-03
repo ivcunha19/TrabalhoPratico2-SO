@@ -1,9 +1,9 @@
 import java.util.Queue;
 
 /**
- * Algoritmo de substituição de páginas Segunda Chance (Second Chance / Clock).
+ * Algoritmo Segunda Chance.
  * Inspeciona o bit de Referência (R);
- * Se o bit R for 1, a página recebe uma "segunda chance", seu bit R é zerado (0) 
+ * Se o bit R for 1, a página recebe uma segunda chance, seu bit R é zerado (0) 
  * e ela vai para o fim da fila de quadros em vez de ser removida.
  */
 public class SegundaChance extends Algoritimo{

@@ -12,7 +12,7 @@ public class App {
     static LinkedList<Acesso> listaAcessos = new LinkedList<>();
     // Quantidade total de quadros de memória física disponíveis
     static int quadros = 0;
-    // Intervalo de clock para redefinir bits dos algoritmos (quando aplicável)
+    // Intervalo de clock para redefinir bits dos algoritmos
     static int tempoClock = 0;
 
     /**

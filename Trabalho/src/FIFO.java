@@ -1,7 +1,7 @@
 import java.util.Queue;
 
 /**
- * Algoritmo de substituição de páginas FIFO (First-In, First-Out).
+ * Algoritmo FIFO.
  * A primeira página a entrar na memória é a primeira a ser removida quando ocorre falta de página.
  */
 public class FIFO extends Algoritimo{

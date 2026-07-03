@@ -6,7 +6,7 @@ import java.util.Queue;
  */
 public abstract class Algoritimo {
 
-    // Quantidade total de quadros (frames) de memória física disponíveis
+    // Quantidade total de quadros de memória física disponíveis
     protected int quadrosDisponiveis;
     protected int tempoClock;
     // Fila de acessos à memória carregados do arquivo
@@ -14,7 +14,7 @@ public abstract class Algoritimo {
     // Lista dinâmica que representa os quadros de memória física atualmente ocupados
     LinkedList<Acesso> listaQuadros = new LinkedList<Acesso>();
 
-    // Contador de faltas de página (Page Faults) ocorridas durante a simulação
+    // Contador de page faults ocorridas durante a simulação
     protected int pageFaults = 0;
 
     /**

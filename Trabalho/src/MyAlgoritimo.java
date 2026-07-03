@@ -2,7 +2,7 @@ import java.util.Queue;
 import java.util.Random;
 
 /**
- * Algoritmo my
+ * Algoritmo my.
  * Funciona de forma similar à Segunda Chance, mas em vez de percorrer a fila sequencialmente
  * para escolher a vítima, ele sorteia aleatoriamente um quadro da memória.
  */
