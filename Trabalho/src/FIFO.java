@@ -27,17 +27,11 @@ public class FIFO extends Algoritimo{
             int presente = verificaPresenca(novoAcesso);
             if(presente == -1){
                 pageFaults++;
-                novoAcesso.setR(1);
-                novoAcesso.setM(novoAcesso.getTipo() == 'W' ? 1 : 0);
                 if(listaQuadros.size() < quadrosDisponiveis){
                     listaQuadros.add(novoAcesso);
                 }else{
                     listaQuadros.removeFirst();
                     listaQuadros.add(novoAcesso);
-                }
-            } else {
-                if (novoAcesso.getTipo() == 'W') {
-                    listaQuadros.get(presente).setM(1);
                 }
             }
             for(Acesso pagina : listaQuadros){

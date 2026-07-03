@@ -47,7 +47,6 @@ public class App {
         System.out.println("Total de Acessos carregados: " + listaAcessos.size());
         System.out.println();
 
-        // 1. Segunda Chance
         LinkedList<Acesso> acessosSC = clonarAcessos(listaAcessos);
         System.out.println("==========================================");
         System.out.println("Executando: SEGUNDA CHANCE");
@@ -58,7 +57,6 @@ public class App {
         System.out.println("Faltas de Página (Segunda Chance): " + pfSC);
         System.out.println();
 
-        // 2. FIFO
         LinkedList<Acesso> acessosFIFO = clonarAcessos(listaAcessos);
         System.out.println("==========================================");
         System.out.println("Executando: FIFO");
@@ -69,7 +67,6 @@ public class App {
         System.out.println("Faltas de Página (FIFO): " + pfFIFO);
         System.out.println();
 
-        // 3. MyAlgoritimo (Random-R)
         LinkedList<Acesso> acessosMY = clonarAcessos(listaAcessos);
         System.out.println("==========================================");
         System.out.println("Executando: MY ALGORITIMO (Random-R)");
@@ -80,7 +77,6 @@ public class App {
         System.out.println("Faltas de Página (MY - Random-R): " + pfMY);
         System.out.println();
 
-        // Relatório Comparativo
         System.out.println("==========================================");
         System.out.println("           RELATÓRIO COMPARATIVO          ");
         System.out.println("==========================================");
