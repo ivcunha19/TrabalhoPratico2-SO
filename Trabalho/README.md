@@ -42,7 +42,7 @@ O nosso algoritmo resolve este problema quebrando esse determinismo. Ao introduz
        - Se R == 0, a página é a vítima selecionada e é substituída diretamente no quadro pelo novo acesso com R = 1.
 
 ### 3. Complexidade Arquitetural
-- **Complexidade de Tempo**: O(1) amortizado. Não há necessidade de reordenar listas encadeadas, fazer inserções ou atualizar ponteiros a cada hit de página.
+- **Complexidade de Tempo**: Tempo médio de execução O(1). Não há necessidade de reordenar listas encadeadas, fazer inserções ou atualizar ponteiros a cada hit de página.
 - **Complexidade de Espaço**: O(N) para armazenar o array simples contendo as referências das páginas.
 
 ---
