@@ -25,11 +25,11 @@ public class SegundaChance extends Algoritimo{
                         Acesso pagina = listaQuadros.removeFirst();
                         if(pagina.getR() == 0){
                             novoAcesso.setR(1);
-                            listaQuadros.addLast(novoAcesso);
+                            listaQuadros.add(novoAcesso);
                             acessoInserido = true;
                         }else{
                             pagina.setR(0);
-                            listaQuadros.addLast(pagina);
+                            listaQuadros.add(pagina);
                         }
                     }
                 }
