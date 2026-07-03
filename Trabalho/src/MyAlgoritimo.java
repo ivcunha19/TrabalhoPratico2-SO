@@ -17,8 +17,7 @@ public class MyAlgoritimo extends Algoritimo {
             int presente = verificaPresenca(novoAcesso);
 
             if (presente != -1) {
-                Acesso pagina = listaQuadros.get(presente);
-                pagina.setR(1);
+                listaQuadros.get(presente).setR(1);
             } else {
                 pageFaults++;
                 novoAcesso.setR(1);

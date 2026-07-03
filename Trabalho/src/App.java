@@ -5,17 +5,17 @@ import java.util.LinkedList;
 
 public class App {
     static LinkedList<Acesso> listaAcessos = new LinkedList<>();
-    static int Quadros = 0;
+    static int quadros = 0;
     static int tempoClock = 0;
 
     static public void leArquivo(){
         try (BufferedReader br = new BufferedReader(new FileReader("Trabalho/referencias.txt"))) {
-            Quadros = 0;
+            quadros = 0;
             tempoClock = 0;
             String line;
             if ((line = br.readLine()) != null) {
                 String[] partes = line.split(";");
-                Quadros = Integer.parseInt(partes[1]);
+                quadros = Integer.parseInt(partes[1]);
             }
 
             if ((line = br.readLine()) != null) {
@@ -42,36 +42,36 @@ public class App {
     public static void main(String[] args) throws Exception {
         leArquivo();
         
-        System.out.println("Quantidade de Quadros: " + Quadros);
+        System.out.println("Quantidade de Quadros: " + quadros);
         System.out.println("Tempo de Clock: " + tempoClock);
         System.out.println("Total de Acessos carregados: " + listaAcessos.size());
-        System.out.println();
-
-        LinkedList<Acesso> acessosSC = clonarAcessos(listaAcessos);
-        System.out.println("==========================================");
-        System.out.println("Executando: SEGUNDA CHANCE");
-        System.out.println("==========================================");
-        Algoritimo sc = new SegundaChance(Quadros, tempoClock, acessosSC);
-        sc.executaAcesso();
-        int pfSC = sc.getPageFaults();
-        System.out.println("Faltas de Página (Segunda Chance): " + pfSC);
         System.out.println();
 
         LinkedList<Acesso> acessosFIFO = clonarAcessos(listaAcessos);
         System.out.println("==========================================");
         System.out.println("Executando: FIFO");
         System.out.println("==========================================");
-        Algoritimo fifo = new FIFO(Quadros, tempoClock, acessosFIFO);
+        Algoritimo fifo = new FIFO(quadros, tempoClock, acessosFIFO);
         fifo.executaAcesso();
         int pfFIFO = fifo.getPageFaults();
         System.out.println("Faltas de Página (FIFO): " + pfFIFO);
+        System.out.println();
+
+        LinkedList<Acesso> acessosSC = clonarAcessos(listaAcessos);
+        System.out.println("==========================================");
+        System.out.println("Executando: SEGUNDA CHANCE");
+        System.out.println("==========================================");
+        Algoritimo sc = new SegundaChance(quadros, tempoClock, acessosSC);
+        sc.executaAcesso();
+        int pfSC = sc.getPageFaults();
+        System.out.println("Faltas de Página (Segunda Chance): " + pfSC);
         System.out.println();
 
         LinkedList<Acesso> acessosMY = clonarAcessos(listaAcessos);
         System.out.println("==========================================");
         System.out.println("Executando: MY ALGORITIMO (Random-R)");
         System.out.println("==========================================");
-        Algoritimo my = new MyAlgoritimo(Quadros, tempoClock, acessosMY);
+        Algoritimo my = new MyAlgoritimo(quadros, tempoClock, acessosMY);
         my.executaAcesso();
         int pfMY = my.getPageFaults();
         System.out.println("Faltas de Página (MY - Random-R): " + pfMY);
@@ -81,9 +81,9 @@ public class App {
         System.out.println("           RELATÓRIO COMPARATIVO          ");
         System.out.println("==========================================");
         System.out.printf("Total de Acessos: %d\n", listaAcessos.size());
-        System.out.printf("Segunda Chance : %d Faltas de Página (Taxa: %.2f%%)\n", pfSC, ((double)pfSC / listaAcessos.size()) * 100);
         System.out.printf("FIFO           : %d Faltas de Página (Taxa: %.2f%%)\n", pfFIFO, ((double)pfFIFO / listaAcessos.size()) * 100);
-        System.out.printf("MY (Random-R)  : %d Faltas de Página (Taxa: %.2f%%)\n", pfMY, ((double)pfMY / listaAcessos.size()) * 100);
+        System.out.printf("Segunda Chance : %d Faltas de Página (Taxa: %.2f%%)\n", pfSC, ((double)pfSC / listaAcessos.size()) * 100);
+        System.out.printf("MY             : %d Faltas de Página (Taxa: %.2f%%)\n", pfMY, ((double)pfMY / listaAcessos.size()) * 100);
         System.out.println("==========================================");
     }
 

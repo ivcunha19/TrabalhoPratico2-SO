@@ -2,9 +2,7 @@ public class Acesso {
 
     private int id;
     private char tipo;
-    //R é o bit correspondente ao uso da pagina
     private int R;
-    //M é o bit correspondente a Modificação
     private int M;
 
     Acesso(int id, char tipo){
