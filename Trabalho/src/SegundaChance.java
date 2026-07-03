@@ -6,15 +6,6 @@ public class SegundaChance extends Algoritimo{
         super(quadrosDisponiveis, tempoClock, listaAcessos);
     }
 
-    protected int verificaPresenca(Acesso novoAcesso){
-        for(int i = 0; i < listaQuadros.size(); i++){
-            if(listaQuadros.get(i).getId() == novoAcesso.getId()){
-                return i;
-            }
-        }
-        return -1;
-    }
-
     @Override
     protected void executaAcesso() {
 

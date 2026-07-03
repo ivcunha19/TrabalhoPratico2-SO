@@ -10,8 +10,6 @@ public class MyAlgoritimo extends Algoritimo {
         this.random = new Random(42);
     }
 
-    
-
     @Override
     protected void executaAcesso() {
         while (!listaAcessos.isEmpty()) {
