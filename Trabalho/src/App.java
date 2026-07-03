@@ -9,7 +9,7 @@ public class App {
     static int tempoClock = 0;
 
     static public void leArquivo(){
-        try (BufferedReader br = new BufferedReader(new FileReader("referencias.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("Trabalho/referencias.txt"))) {
             Quadros = 0;
             tempoClock = 0;
             String line;

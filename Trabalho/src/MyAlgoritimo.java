@@ -1,26 +1,16 @@
-import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
 public class MyAlgoritimo extends Algoritimo {
 
-    private final LinkedList<Acesso> listaQuadros;
     private final Random random;
 
     public MyAlgoritimo(int quadrosDisponiveis, int tempoClock, Queue<Acesso> listaAcessos) {
         super(quadrosDisponiveis, tempoClock, listaAcessos);
-        this.listaQuadros = new LinkedList<>();
         this.random = new Random(42);
     }
 
-    protected int verificaPresenca(Acesso novoAcesso) {
-        for (int i = 0; i < listaQuadros.size(); i++) {
-            if (listaQuadros.get(i).getId() == novoAcesso.getId()) {
-                return i;
-            }
-        }
-        return -1;
-    }
+    
 
     @Override
     protected void executaAcesso() {

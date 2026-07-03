@@ -1,13 +1,9 @@
-import java.util.LinkedList;
 import java.util.Queue;
 
 public class SegundaChance extends Algoritimo{
 
-    LinkedList<Acesso> listaQuadros;
-
     SegundaChance(int quadrosDisponiveis, int tempoClock, Queue<Acesso> listaAcessos){
         super(quadrosDisponiveis, tempoClock, listaAcessos);
-        listaQuadros = new LinkedList<Acesso>();
     }
 
     protected int verificaPresenca(Acesso novoAcesso){

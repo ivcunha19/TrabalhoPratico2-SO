@@ -1,13 +1,11 @@
-import java.util.LinkedList;
 import java.util.Queue;
 
 public class FIFO extends Algoritimo{
 
-    LinkedList<Acesso> listaQuadros = new LinkedList<Acesso>();
+    
 
     FIFO(int quadrosDisponiveis, int tempoClock, Queue<Acesso> listaAcessos){
         super(quadrosDisponiveis, tempoClock, listaAcessos);
-        listaQuadros = new LinkedList<Acesso>();
     }
 
     protected int verificaPresenca(Acesso novoAcesso){
