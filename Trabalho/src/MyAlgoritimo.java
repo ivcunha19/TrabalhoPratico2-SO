@@ -19,13 +19,9 @@ public class MyAlgoritimo extends Algoritimo {
             if (presente != -1) {
                 Acesso pagina = listaQuadros.get(presente);
                 pagina.setR(1);
-                if (novoAcesso.getTipo() == 'W') {
-                    pagina.setM(1);
-                }
             } else {
                 pageFaults++;
                 novoAcesso.setR(1);
-                novoAcesso.setM(novoAcesso.getTipo() == 'W' ? 1 : 0);
 
                 if (listaQuadros.size() < quadrosDisponiveis) {
                     listaQuadros.add(novoAcesso);

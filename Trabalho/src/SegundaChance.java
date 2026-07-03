@@ -14,18 +14,10 @@ public class SegundaChance extends Algoritimo{
             int presente = verificaPresenca(novoAcesso);
             if(presente != -1){
                 listaQuadros.get(presente).setR(1);
-                if(novoAcesso.getTipo() == 'W'){
-                    listaQuadros.get(presente).setM(1);
-                }
             }else{
                 pageFaults++;
                 if(listaQuadros.size() < quadrosDisponiveis){
                     novoAcesso.setR(1);
-                    if(novoAcesso.getTipo() == 'W'){
-                        novoAcesso.setM(1);
-                    }else{
-                        novoAcesso.setM(0);
-                    }
                     listaQuadros.add(novoAcesso);
                 }else{
                     boolean acessoInserido = false;
@@ -33,11 +25,6 @@ public class SegundaChance extends Algoritimo{
                         Acesso pagina = listaQuadros.removeFirst();
                         if(pagina.getR() == 0){
                             novoAcesso.setR(1);
-                            if(novoAcesso.getTipo() == 'W'){
-                                novoAcesso.setM(1);
-                            }else{
-                                novoAcesso.setM(0);
-                            }
                             listaQuadros.addLast(novoAcesso);
                             acessoInserido = true;
                         }else{
