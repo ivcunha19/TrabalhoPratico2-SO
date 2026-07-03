@@ -22,7 +22,7 @@ public class SegundaChance extends Algoritimo{
     @Override
     protected void executaAcesso() {
 
-        while(listaAcessos.isEmpty()){
+        while(!listaAcessos.isEmpty()){
             Acesso novoAcesso = listaAcessos.remove();
             int presente = verificaPresenca(novoAcesso);
             if(presente != -1){
@@ -31,6 +31,7 @@ public class SegundaChance extends Algoritimo{
                     listaQuadros.get(presente).setM(1);
                 }
             }else{
+                pageFaults++;
                 if(listaQuadros.size() < quadrosDisponiveis){
                     novoAcesso.setR(1);
                     if(novoAcesso.getTipo() == 'W'){

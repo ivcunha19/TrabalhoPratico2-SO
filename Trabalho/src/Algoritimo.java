@@ -7,6 +7,8 @@ public abstract class Algoritimo {
     protected Queue<Acesso> listaAcessos;
     protected Acesso[] quadros;
 
+    protected int pageFaults = 0;
+
     Algoritimo (int quadrosDisponiveis, int tempoClock, Queue<Acesso> listaAcessos){
         this.quadrosDisponiveis = quadrosDisponiveis;
         this.tempoClock = tempoClock;
@@ -14,5 +16,9 @@ public abstract class Algoritimo {
         quadros = new Acesso[quadrosDisponiveis];
     }
     protected void executaAcesso(){};
+
+    public int getPageFaults() {
+        return pageFaults;
+    }
     
 }
