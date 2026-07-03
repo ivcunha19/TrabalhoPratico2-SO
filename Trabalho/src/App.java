@@ -3,11 +3,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
+/**
+ * Classe principal do sistema que gerencia a leitura das referências 
+ * e executa a comparação entre os algoritmos de substituição de páginas.
+ */
 public class App {
+    // Lista global que armazena os acessos carregados do arquivo referencias.txt
     static LinkedList<Acesso> listaAcessos = new LinkedList<>();
+    // Quantidade total de quadros de memória física disponíveis
     static int quadros = 0;
+    // Intervalo de clock para redefinir bits dos algoritmos (quando aplicável)
     static int tempoClock = 0;
 
+    /**
+     * Lê as configurações de simulação e os acessos de página a partir de um arquivo.
+     */
     static public void leArquivo(){
         try (BufferedReader br = new BufferedReader(new FileReader("Trabalho/referencias.txt"))) {
             quadros = 0;
@@ -52,7 +62,7 @@ public class App {
         System.out.println("Executando: FIFO");
         System.out.println("==========================================");
         Algoritimo fifo = new FIFO(quadros, tempoClock, acessosFIFO);
-        fifo.executaAcesso();
+        fifo.executaAcesso(); // Executa o algoritmo FIFO
         int pfFIFO = fifo.getPageFaults();
         System.out.println("Faltas de Página (FIFO): " + pfFIFO);
         System.out.println();
@@ -62,21 +72,22 @@ public class App {
         System.out.println("Executando: SEGUNDA CHANCE");
         System.out.println("==========================================");
         Algoritimo sc = new SegundaChance(quadros, tempoClock, acessosSC);
-        sc.executaAcesso();
+        sc.executaAcesso(); // Executa o algoritmo de Segunda Chance
         int pfSC = sc.getPageFaults();
         System.out.println("Faltas de Página (Segunda Chance): " + pfSC);
         System.out.println();
 
         LinkedList<Acesso> acessosMY = clonarAcessos(listaAcessos);
         System.out.println("==========================================");
-        System.out.println("Executando: MY ALGORITIMO (Random-R)");
+        System.out.println("Executando: MY");
         System.out.println("==========================================");
         Algoritimo my = new MyAlgoritimo(quadros, tempoClock, acessosMY);
-        my.executaAcesso();
+        my.executaAcesso(); // Executa o algoritmo my
         int pfMY = my.getPageFaults();
-        System.out.println("Faltas de Página (MY - Random-R): " + pfMY);
+        System.out.println("Faltas de Página (MY): " + pfMY);
         System.out.println();
 
+        // Exibição do Relatório Comparativo Final
         System.out.println("==========================================");
         System.out.println("           RELATÓRIO COMPARATIVO          ");
         System.out.println("==========================================");
@@ -87,8 +98,13 @@ public class App {
         System.out.println("==========================================");
     }
 
+    /**
+     * Realiza a clonagem da lista de acessos.
+     * Isso evita que alterações feitas por um algoritmo afetem o outro.
+     */
     private static LinkedList<Acesso> clonarAcessos(LinkedList<Acesso> original) {
         LinkedList<Acesso> copia = new LinkedList<>();
+        // Loop percorrendo cada elemento da lista original para criar instâncias separadas
         for (Acesso a : original) {
             copia.add(new Acesso(a.getId(), a.getTipo()));
         }

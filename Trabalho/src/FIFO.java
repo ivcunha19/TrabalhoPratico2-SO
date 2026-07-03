@@ -1,5 +1,9 @@
 import java.util.Queue;
 
+/**
+ * Algoritmo de substituição de páginas FIFO (First-In, First-Out).
+ * A primeira página a entrar na memória é a primeira a ser removida quando ocorre falta de página.
+ */
 public class FIFO extends Algoritimo{
 
     
@@ -23,6 +27,8 @@ public class FIFO extends Algoritimo{
                     listaQuadros.add(novoAcesso);
                 }
             }
+            
+            // Loop para exibir o estado atual dos quadros de memória após o acesso
             for(Acesso pagina : listaQuadros){
                 System.out.println(pagina);
             }

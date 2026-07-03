@@ -1,10 +1,18 @@
 import java.util.Queue;
 import java.util.Random;
 
+/**
+ * Algoritmo my
+ * Funciona de forma similar à Segunda Chance, mas em vez de percorrer a fila sequencialmente
+ * para escolher a vítima, ele sorteia aleatoriamente um quadro da memória.
+ */
 public class MyAlgoritimo extends Algoritimo {
 
     private final Random random;
 
+    /**
+     * Construtor do algoritmo personalizado, definindo uma semente fixa (42) para reprodutibilidade.
+     */
     public MyAlgoritimo(int quadrosDisponiveis, int tempoClock, Queue<Acesso> listaAcessos) {
         super(quadrosDisponiveis, tempoClock, listaAcessos);
         this.random = new Random(42);
@@ -39,6 +47,7 @@ public class MyAlgoritimo extends Algoritimo {
                 }
             }
 
+            // Loop para exibir o estado atual dos quadros de memória após cada acesso
             for (Acesso pagina : listaQuadros) {
                 System.out.println(pagina + " (R=" + pagina.getR() + ", M=" + pagina.getM() + ")");
             }
