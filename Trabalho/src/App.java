@@ -5,20 +5,22 @@ import java.util.LinkedList;
 
 public class App {
     static LinkedList<Acesso> listaAcessos = new LinkedList<>();
-    static ConfigMemoria configs;
+    static int Quadros = 0;
+    static int tempoClock = 0;
 
     static public void leArquivo(){
         try (BufferedReader br = new BufferedReader(new FileReader("referencias.txt"))) {
+            Quadros = 0;
+            tempoClock = 0;
             String line;
-            int Quadros = 0;
-            int tempoClock = 0;
             if ((line = br.readLine()) != null) {
                 String[] partes = line.split(";");
-                Quadros = partes[1].charAt(0);
+                Quadros = Integer.parseInt(partes[1]);
             }
+
             if ((line = br.readLine()) != null) {
                 String[] partes = line.split(";");
-                tempoClock = partes[1].charAt(0);
+                tempoClock = Integer.parseInt(partes[1]);
             }
             LinkedList<String> listaString = new LinkedList<>();
             while ((line = br.readLine()) != null) {
@@ -33,7 +35,6 @@ public class App {
                 Acesso novo = new Acesso(id, tipo);
                 listaAcessos.add(novo);
             }
-            configs = new ConfigMemoria(Quadros, tempoClock,listaAcessos);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,8 +42,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         
         leArquivo();
-        for (Acesso acesso : listaAcessos) {
-            System.out.println(acesso.toString());
-        }
+        System.out.println(Quadros);
+        Algoritimo algoritimo = new SegundaChance(Quadros, tempoClock, listaAcessos);
+        algoritimo.executaAcesso();
     }
 }
